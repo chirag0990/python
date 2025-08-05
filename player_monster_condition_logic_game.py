@@ -45,7 +45,7 @@ def calculate_damage_number(attacker):
 
     if is_factor_three(damage):
         damage = damage * 2
-        print(f"{attacker.capitalize()} scored a critical hit of {damage} damage.")
+        print(f"👾{attacker.capitalize()} scored a critical hit of {damage} damage.")
     
     return damage
 
@@ -53,11 +53,11 @@ def calculate_damage_number(attacker):
 while True:
     #3). The player has the option to attack, heal, or run away
     
-    print(f" Your Health : {player_health}, Monster Health: {monster_health}")
+    print(f" ❤️ Your Health : {player_health}, Monster Health: {monster_health}")
     try:
         action = input("Do you want to (A)ttack, (H)eal or (R)un away: ").upper()
     except KeyboardInterrupt:
-        print("\nYou can't game quit using ctrl + c")
+        print("\n ❌ You can't game quit using ctrl + c")
         continue  # Continue the loop if Ctrl+C is pressed
          
     #4). If the player attacks, they deal between 10 and 15 damage to the monster. 
@@ -65,10 +65,10 @@ while True:
     if action == "A":
         damage = calculate_damage_number("player")
         monster_health -= damage
-        print(f"You attacked the monster for {damage} damage!")
+        print(f" 🥷 You attacked the monster for {damage} damage!")
 
         if monster_health <= 0:
-            print("You defeated the monster!")
+            print(" 🏆 You defeated the monster!")
             break
 
     #5). If the player heals, they regain 30 health, but that can’t go over their maximum of 100.
@@ -77,24 +77,24 @@ while True:
         player_health += heal
         if player_health > 100:
             player_health = 100
-        print(f"You healed for {heal} health!")
+        print(f" ❤️ You healed for {heal} health!")
 
     #6). If the player runs away, then the game ends.    
         
     elif action == "R":
-        print("You'r run away.")
+        print(" 🏃‍♂️ You'r run away.")
         break 
     else:
-        print("Invalid Action! Please Choose Valid Action Option 'A','H', or 'R'")
+        print(" ❌ Invalid Action! Please Choose Valid Action Option 'A','H', or 'R'")
         continue
     #7). After the player’s turn, if the monster is still alive—then it deals between 15 and 20 damage to the player."""
     if monster_health > 0:
         monster_damage = calculate_damage_number("monster")
         player_health -= monster_damage
-        print(f"The monster attacked you for {monster_damage} damage!")
+        print(f" 👹 The monster attacked you for {monster_damage} damage!")
 
         if player_health <= 0:
-            print("You were defeated by the monster!")
+            print(" 😈 You were defeated by the monster!")
             break
 
 print("Game Over!")
